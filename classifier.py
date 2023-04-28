@@ -1,19 +1,14 @@
 import os
-# import tarfile
+import zipfile
+
 
 os.chdir(os.path.relpath("./Archieve/"))
 
-file_name = 'Lenovo_отзыв№1.txt'
+file_name = 'data.zip'
 
-# with tarfile.open(file_name, "r:rtf") as tar:
-#     tar.extractall()
-#     tar.close()
+with zipfile.ZipFile(file_name, "r") as archive:
+    archive.extractall(path="./Archieve/")
 
-
-file = open(file_name, mode="r", encoding="UTF-8")
-print(file.read())
-
-file.close()
 
 def load_training_data(data_directory: str = "data/train", split: float = 0.8, limit: int = 0) -> tuple:
     reviews = []  #
