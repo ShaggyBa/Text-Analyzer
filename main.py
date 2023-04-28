@@ -13,3 +13,16 @@ doc = nlp(text)
 token_list = [token for token in doc]
 
 print(token_list)
+
+filtered_tokens = [token for token in doc if not token.is_stop]
+
+print(filtered_tokens)
+
+lemas = [
+    f"token : {token} | lemma: {token.lemma_}"
+    for token in filtered_tokens
+]
+
+print(lemas)
+
+print(filtered_tokens[1].vector)
